@@ -1,69 +1,108 @@
-import Image from "next/image";
+import IntroAnimation from "@/components/IntroAnimation";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import CatalogToWhyStack from "@/components/CatalogToWhyStack";
+import PackageCatalog from "@/components/PackageCatalog";
+import StoreCalculator from "@/components/StoreCalculator";
+import RetailSectors from "@/components/RetailSectors";
+import Testimonials from "@/components/Testimonials";
+import FAQSection from "@/components/FAQSection";
+import Footer from "@/components/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen flex flex-col bg-white text-[#1C1917] selection:bg-[#1C1917] selection:text-[#E8F878]">
+      {/* 0. Kinetic First-Load Intro Animation */}
+      <IntroAnimation />
+
+      {/* 1. Main Navigation Bar with Center 'RITEL ⧗ INDO' Mark */}
+      <Navbar />
+
+      {/* 3. Main Content Container */}
+      <main className="flex-1">
+        {/* Hero Section: Centered headline, Chartreuse Lime Button, and Giant RITELINDO Serif Watermark */}
+        <HeroSection />
+
+        {/* 3-Card Stack Transition: Featured Products (Catalog) -> Why Ritelindo -> Company Partnership (Mitra) */}
+        <CatalogToWhyStack />
+
+        {/* Paket Setup Toko & Kalkulator Interaktif (Rising over CompanyPartnership) - Satu Kesatuan Tanpa Pembatas */}
+        <section className="relative z-30 -mt-[100vh] bg-[#E8F878] shadow-[0_-35px_90px_rgba(0,0,0,0.85)] font-montserrat">
+          {/* Concave Inward Scoop Transition Header - Covers CompanyPartnership */}
+          <div className="absolute -top-10 sm:-top-14 md:-top-16 left-0 right-0 w-full overflow-hidden pointer-events-none z-30">
+            <svg
+              viewBox="0 0 1440 70"
+              preserveAspectRatio="none"
+              className="w-full h-10 sm:h-14 md:h-16 block text-[#E8F878] fill-current"
+              aria-hidden="true"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <path d="M 0,0 C 0,44 36,70 80,70 L 1360,70 C 1404,70 1440,44 1440,0 L 1440,70 L 0,70 Z" />
+              <path
+                d="M 0,0 C 0,44 36,70 80,70 L 1360,70 C 1404,70 1440,44 1440,0"
+                fill="none"
+                stroke="rgba(28,25,23,0.18)"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+
+          {/* Seamless Continuous Architectural Black Square Grid Overlay */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(0, 0, 0, 0.16) 1.5px, transparent 1.5px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.16) 1.5px, transparent 1.5px)
+              `,
+              backgroundSize: "28px 28px",
+            }}
+          />
+
+          {/* 1. Paket Setup Siap Buka */}
+          <PackageCatalog />
+
+          {/* 2. Kalkulator Interaktif - Mengalir langsung di kanvas yang sama tanpa pembatas */}
+          <StoreCalculator />
+        </section>
+
+        {/* 2. Sektor Usaha Ritel, Kisah Sukses (Testimoni) & Tanya Jawab FAQ */}
+        <section className="relative z-30 shadow-[0_-35px_90px_rgba(0,0,0,0.85)] bg-white font-montserrat">
+          {/* Concave Inward Scoop Transition Header */}
+          <div className="absolute -top-10 sm:-top-14 md:-top-16 left-0 right-0 w-full overflow-hidden pointer-events-none z-30">
+            <svg
+              viewBox="0 0 1440 70"
+              preserveAspectRatio="none"
+              className="w-full h-10 sm:h-14 md:h-16 block text-white fill-current"
+              aria-hidden="true"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+              <path d="M 0,0 C 0,44 36,70 80,70 L 1360,70 C 1404,70 1440,44 1440,0 L 1440,70 L 0,70 Z" />
+              <path
+                d="M 0,0 C 0,44 36,70 80,70 L 1360,70 C 1404,70 1440,44 1440,0"
+                fill="none"
+                stroke="rgba(28,25,23,0.12)"
+                strokeWidth="2"
+              />
+            </svg>
+          </div>
+
+          {/* Sektor Industri Toko Retail & 3 Target Customer Segments */}
+          <RetailSectors />
+
+          {/* Kisah Sukses (Testimonials) */}
+          <Testimonials />
+
+          {/* Tanya Jawab Populer (FAQ) */}
+          <FAQSection />
+        </section>
       </main>
+
+      {/* 4. Luxury Deep Espresso Footer */}
+      <Footer />
+
+      {/* 5. High-Converting Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </div>
   );
 }
